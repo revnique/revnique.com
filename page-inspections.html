@@ -4,32 +4,32 @@
 <head>
     <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://homeinspection.harristeq.com/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="http://revnique.com/lib/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.4.0/angular-animate.min.js"></script>
-    <script src="https://homeinspection.harristeq.com/underscore-min.js"></script>
-    <script src="https://homeinspection.harristeq.com/angular.socket.js"></script>
+    <script src="http://revnique.com/lib/underscore-min.js"></script>
+    <script src="http://revnique.com/lib/angular.socket.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--<meta name="viewport" content="width=device-width">-->
-    <title>HomeInspections</title>
+    <title>Revnique's Home Inspection Demo</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/1.1.0/toaster.min.css" rel="stylesheet" />
 
 
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/lib/bootstrap/dist/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/lib/metisMenu/dist/metisMenu.min.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/metisMenu/dist/metisMenu.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/dist/timeline.css">
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/dist/sb-admin-2.css">
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/lib/morrisjs/morris.css">
-    <link rel="stylesheet" href="https://homeinspection.harristeq.com/dist/application.min.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/timeline.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/sb-admin-2.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/morrisjs/morris.css">
+    <link rel="stylesheet" href="http://revnique.com/lib/application.min.css">
 </head>
 <body data-ng-app="app" data-ng-controller="tempController" data-ng-class="{'shifted': isShifted}">
     <nav class="menu-slider" data-ng-class="{'shifted': isShifted}">
         <div class="header-container" data-ng-click="doit();">
-            <!--<img src="https://homeinspection.harristeq.com/justlogoIcon.png" class="logo" />
+            <!--<img src="http://revnique.com/justlogoIcon.png" class="logo" />
             <h5>HarrisTeq</h5>-->
             <div class="header">
                 Menu
@@ -51,7 +51,7 @@
         </div>
     </nav>
     <div class="p-wrapper" data-ng-class="{'shifted': isShifted, 'footer-slide': isEditMode, 'has-detail': hasDetail, 'level-1': childLevel===1, 'level-2': childLevel===2, 'level-3': childLevel===3}">
-        <iframe style="display: none;" width="0" height="0" name="printFrame" id="printFrame" src="https://homeinspection.harristeq.com/printable.html"></iframe>
+        <iframe style="display: none;" width="0" height="0" name="printFrame" id="printFrame" src="http://revnique.com/printable.html"></iframe>
         <!--<iframe style="display: none;" width="0" height="0" name="printFrame" id="printFrame" src="printable.html"></iframe>-->
         <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog">
@@ -90,7 +90,7 @@
         </div>
 
 
-        <!--<img src="https://homeinspection.harristeq.com/justlogoIcon.png" class="logo-main"/>
+        <!--<img src="http://revnique.com/justlogoIcon.png" class="logo-main"/>
         <h5 class="logo-text">HarrisTeq</h5>-->
         <div class="p-container">
             <div class="p-header text-center">
@@ -177,7 +177,7 @@
                         </div>
                         <div class="right-arrow">
                             <a href="#" ng-click="next(selectedForm, item)">
-                                <img src="https://homeinspection.harristeq.com/chevron-right.png" />
+                                <img src="http://revnique.com/chevron-right.png" />
                             </a>
                         </div>
                         <div class="clearfix"></div>
@@ -219,7 +219,7 @@
                         </div>
                         <div class="right-arrow">
                             <a href="#" ng-click="next(selectedForm, item)">
-                                <img src="https://homeinspection.harristeq.com/chevron-right.png" />
+                                <img src="http://revnique.com/chevron-right.png" />
                             </a>
                         </div>
                         <div class="clearfix"></div>
@@ -262,7 +262,7 @@
                         </div>
                         <div class="right-arrow">
                             <a href="#" ng-click="next(selectedForm, item)">
-                                <img src="https://homeinspection.harristeq.com/chevron-right.png" />
+                                <img src="http://revnique.com/chevron-right.png" />
                             </a>
                         </div>
                         <div class="clearfix"></div>
@@ -305,7 +305,7 @@
                         </div>
                         <div class="right-arrow ng-hide">
                             <a href="#" ng-click="next(selectedForm, item)">
-                                <img src="https://homeinspection.harristeq.com/chevron-right.png" />
+                                <img src="http://revnique.com/chevron-right.png" />
                             </a>
                         </div>
                         <div class="clearfix"></div>
@@ -698,7 +698,7 @@
         //socket factory that provides the socket service
         app.factory('Socket', ['socketFactory',
             function (socketFactory) {
-                var url = location.href.indexOf("localhost") > -1 ? 'http://localhost:3000' : 'https://homeinspection.harristeq.com';
+                var url = location.href.indexOf("localhost") > -1 ? 'http://localhost:3000' : 'http://revnique.com';
                 return socketFactory({
                     prefix: '',
                     ioSocket: io.connect(url)
@@ -3030,10 +3030,10 @@
 
 
             $scope.login = function () {
-                //https://homeinspection.harristeq.com/api/auth/signin
+                //http://revnique.com/api/auth/signin
                 //{"username":"asdf","password":"Password1*"}
                 var data = { "username": "asdf", "password": "Password1*" };
-                $http.post('https://homeinspection.harristeq.com/api/auth/signin', data)
+                $http.post('http://revnique.com/api/auth/signin', data)
                     .success(function (response) {
                         // Show user success message and clear form
                         $scope.success = response.message;
@@ -3758,8 +3758,8 @@
 
     .no-js .main .field__input--select,
     .no-pointerevents .main .field__input--select {
-        background-image: url('https://homeinspection.harristeq.com/dropdown-arrow-down-dark.png');
-        background-image: url('https://homeinspection.harristeq.com/dropdown-arrow-down-dark.svg'), none;
+        background-image: url('http://revnique.com/dropdown-arrow-down-dark.png');
+        background-image: url('http://revnique.com/dropdown-arrow-down-dark.svg'), none;
     }
 
     .pointerevents .field__input-wrapper--select:before {
@@ -3775,8 +3775,8 @@
     }
 
     .pointerevents .main .field__input-wrapper--select:before {
-        background-image: url('https://homeinspection.harristeq.com/dropdown-arrow-down-dark.png');
-        background-image: url('https://homeinspection.harristeq.com/dropdown-arrow-down-dark.svg'), none;
+        background-image: url('http://revnique.com/dropdown-arrow-down-dark.png');
+        background-image: url('http://revnique.com/dropdown-arrow-down-dark.svg'), none;
     }
 
     .field__icon {

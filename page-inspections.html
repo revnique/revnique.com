@@ -3030,10 +3030,10 @@
 
 
             $scope.login = function () {
-                //http://revnique.com/api/auth/signin
+                //https://homeinspection.harristeq.com/api/auth/signin
                 //{"username":"asdf","password":"Password1*"}
                 var data = { "username": "asdf", "password": "Password1*" };
-                $http.post('http://revnique.com/api/auth/signin', data)
+                $http.post('https://homeinspection.harristeq.com/api/auth/signin', data)
                     .success(function (response) {
                         // Show user success message and clear form
                         $scope.success = response.message;

@@ -698,7 +698,7 @@
         //socket factory that provides the socket service
         app.factory('Socket', ['socketFactory',
             function (socketFactory) {
-                var url = location.href.indexOf("localhost") > -1 ? 'http://localhost:3000' : 'http://revnique.com';
+                var url = location.href.indexOf("localhost") > -1 ? 'http://localhost:3000' : 'https://homeinspection.harristeq.com';
                 return socketFactory({
                     prefix: '',
                     ioSocket: io.connect(url)

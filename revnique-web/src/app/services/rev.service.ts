@@ -23,7 +23,7 @@ export class RevService {
                 name: 'bucktrace.com',
                 comment: 'a currency tracking application',
                 image: '../../assets/images/rev_bucktrace.png',
-                projectUrl: 'https://bucktrace.com',
+                projectUrl: 'https://bucktrace.com/trace/K77777777*',
                 techList: ['flutter', 'iOS', 'Android', 'node.js', 'AWS Lambda', 'mongoDb', 'Angular 14', 'React 18', 'SASS', 'AWS']
             },
             {

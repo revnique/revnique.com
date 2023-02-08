@@ -2,15 +2,17 @@
     <div *ngIf="projects$ | async as projects">
         <div *ngFor="let proj of projects" class="project-container">
             <div class="title">{{proj.name}}</div>
-            <img [src]="proj.image" />
+            <a [href]="proj.projectUrl" target="_blank">
+                <img [src]="proj.image" />
+            </a>
             <div class="comments">
                 {{proj.comment}}
             </div>
             <div style="text-align: center;">
                 <div class="tech-list">
                     <span>&bull;</span>
-                    <span *ngFor="let t of proj.techList">
-                        &nbsp;{{t}} &bull;
+                    <span *ngFor="let tech of proj.techList">
+                        &nbsp;{{tech}} &bull;
                     </span>
                 </div>
             </div>

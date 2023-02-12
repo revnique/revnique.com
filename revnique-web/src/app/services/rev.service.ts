@@ -1,6 +1,7 @@
 import { Injectable, Component } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 
 
 
@@ -9,34 +10,31 @@ export class RevService {
     urlRoot: string = location.href.indexOf('localhost:') > -1 ? 'http://localhost:47777/' : 'https://bucktrace.com/';
     svcRoot: string = location.href.indexOf('localhost:') > -1 ? 'http://localhost:57777/api/' : 'https://api.bucktrace.com/';
     constructor(private http: HttpClient) { }
+    baseUrl = 'https://api.revnique.works';
 
     getProjects(): Observable<RevProject[]> {
-        let p: RevProject[] = [
-            {
-                name: 'h1teq.com',
-                comment: 'h1 teq llc homepage',
-                image: '../../assets/images/rev_h1teq.png',
-                projectUrl: 'https://h1teq.com',
-                techList: ['responsive web', 'dynamic pdf creation', 'HTML', 'CSS']
-            },
-            {
-                name: 'bucktrace.com',
-                comment: 'a currency tracking application',
-                image: '../../assets/images/rev_bucktrace.png',
-                projectUrl: 'https://bucktrace.com/trace/K77777777*',
-                techList: ['flutter', 'iOS', 'Android', 'node.js', 'AWS Lambda', 'mongoDb', 'Angular 14', 'React 18', 'SASS', 'AWS']
-            },
-            {
-                name: 'meridian',
-                comment: 'peer to peer proof review system',
-                image: '../../assets/images/rev_meridian.png',
-                projectUrl: 'https://meridian.ui.h1teq.com/proof/detail/5a051eaa0dd7185b4c2e7a2f',
-                techList: ['Angular 4', 'web sockets', '.Net Core', 'C#']
-            },
-        ];
-        return of(p);
+        let url = `${this.baseUrl}/item`;
+        let headers = new HttpHeaders({ 'content-type': 'application/json' });
+
+        return this.http
+            .get<Observable<any>>(url, {
+                headers: headers,
+                observe: 'response'
+            })
+            .pipe(tap(resp => console.log(resp)), map(this.map), catchError(this.catch));
     };
+
+    private map(response: HttpResponse<any>): Observable<any> {
+        return response.statusText === 'No Content' ? '' : response.body.success || {};
+    }
+
+    private catch(error: any, url?: any, obj?: any): Observable<any> {
+        console.log(error);
+        if (url || obj) console.error('Server Exception: ', url, obj);
+        return throwError(() => { error || 'Server Error' });
+    }
 }
+
 
 
 export class RevProject {

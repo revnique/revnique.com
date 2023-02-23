@@ -1,5 +1,4 @@
 <div class="main-container">
-    <h1>Hello Justin</h1>
     <div *ngIf="projects$ | async as projects">
         <div *ngFor="let proj of projects" class="project-container">
             <div class="title">{{proj.name}}</div>

@@ -36,6 +36,13 @@ app.get('/item', function (req, res) {
 
   var responseBody = [
     {
+      name: 'react & angular portfolio',
+      comment: 'react & angular portfolio 1900*1000',
+      image: '../../assets/images/react-portfolio.png',
+      projectUrl: 'https://react.revnique.works',
+      techList: ['React 19', 'Angular 19', 'AWS Amplify', 'AWS Appsync', 'GraphQL', 'dark mode', 'responsive web']
+    },
+    {
       name: 'h1teq.com',
       comment: 'h1 teq llc homepage',
       image: '../../assets/images/rev_h1teq.png',

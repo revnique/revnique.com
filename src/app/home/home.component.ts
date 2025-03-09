@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RevProject, RevService } from '../services/rev.service';
 import { map } from 'rxjs/operators';
-import { EMPTY, Observable, of } from 'rxjs';
+import { EMPTY, from, Observable, of } from 'rxjs';
 
 @Component({
     selector: 'app-home',
@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
   constructor(private svc: RevService) { }
 
   ngOnInit() {
-    this.projects$ = this.svc.getProjects();
+    this.projects$ = from(this.svc.fetchPortfolioProjects());
   }
 }

@@ -1,0 +1,373 @@
+{
+  "createportfolioprojectinput": {
+    "id": 1,
+    "name": "react & angular portfolio",
+      "comment": "react & angular portfolio 1900*1000",
+      "image": "../../assets/images/react-portfolio.png",
+      "projectUrl": "https://react.revnique.works",
+      "techList": ["React 19", "Angular 19", "AWS Amplify", "AWS Appsync", "GraphQL", "dark mode", "responsive web"]
+  }
+}
+
+
+mutation createPortfolioProject($createportfolioprojectinput: CreatePortfolioProjectInput!) {
+  createPortfolioProject(input: $createportfolioprojectinput) {
+    id
+    name
+    comment
+    image
+    projectUrl
+    cdt
+    techList
+  }
+}
+
+query listPortfolioProjects {
+  listPortfolioProjects {
+    items {
+        id
+        name
+        comment
+        image
+        projectUrl
+        cdt
+        techList
+    }
+  }
+}
+
+{
+  "createportfolioprojectsinput": {
+    "id": 1,
+    "cdt": "2024-08-08Z",
+    "name": "react & angular portfolio",
+    "comment": "react & angular portfolio 1900*1000",
+    "image": "../../assets/images/react-portfolio.png",
+    "projectUrl": "https://react.revnique.works",
+    "techList": ["React 19", "Angular 19", "AWS Amplify", "AWS Appsync", "GraphQL", "dark mode", "responsive web"]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+input CreatePortfolioProjectInput {
+	id: ID!
+	name: String!
+	comment: String!
+	image: String!
+	projectUrl: String!
+	cdt: AWSDate
+	techList: [String]!
+}
+
+input DeletePortfolioProjectInput {
+	id: ID!
+}
+
+enum ModelAttributeTypes {
+	binary
+	binarySet
+	bool
+	list
+	map
+	number
+	numberSet
+	string
+	stringSet
+	_null
+}
+
+input ModelBooleanInput {
+	ne: Boolean
+	eq: Boolean
+	attributeExists: Boolean
+	attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+	ne: Float
+	eq: Float
+	le: Float
+	lt: Float
+	ge: Float
+	gt: Float
+	between: [Float]
+	attributeExists: Boolean
+	attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+	ne: ID
+	eq: ID
+	le: ID
+	lt: ID
+	ge: ID
+	gt: ID
+	contains: ID
+	notContains: ID
+	between: [ID]
+	beginsWith: ID
+	attributeExists: Boolean
+	attributeType: ModelAttributeTypes
+	size: ModelSizeInput
+}
+
+input ModelIntInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+	attributeExists: Boolean
+	attributeType: ModelAttributeTypes
+}
+
+input ModelPortfolioProjectInput {
+	content: ModelStringInput
+	id: ModelIDInput
+	createdAt: ModelStringInput
+	updatedAt: ModelStringInput
+	and: [ModelPortfolioProjectInput]
+	or: [ModelPortfolioProjectInput]
+	not: ModelPortfolioProjectInput
+}
+
+input ModelSizeInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+}
+
+enum ModelSortDirection {
+	ASC
+	DESC
+}
+
+input ModelStringInput {
+	ne: String
+	eq: String
+	le: String
+	lt: String
+	ge: String
+	gt: String
+	contains: String
+	notContains: String
+	between: [String]
+	beginsWith: String
+	attributeExists: Boolean
+	attributeType: ModelAttributeTypes
+	size: ModelSizeInput
+}
+
+input ModelSubscriptionBooleanInput {
+	ne: Boolean
+	eq: Boolean
+}
+
+input ModelSubscriptionFloatInput {
+	ne: Float
+	eq: Float
+	le: Float
+	lt: Float
+	ge: Float
+	gt: Float
+	between: [Float]
+	in: [Float]
+	notIn: [Float]
+}
+
+input ModelSubscriptionIDInput {
+	ne: ID
+	eq: ID
+	le: ID
+	lt: ID
+	ge: ID
+	gt: ID
+	contains: ID
+	notContains: ID
+	between: [ID]
+	beginsWith: ID
+	in: [ID]
+	notIn: [ID]
+}
+
+input ModelSubscriptionIntInput {
+	ne: Int
+	eq: Int
+	le: Int
+	lt: Int
+	ge: Int
+	gt: Int
+	between: [Int]
+	in: [Int]
+	notIn: [Int]
+}
+
+input ModelSubscriptionStringInput {
+	ne: String
+	eq: String
+	le: String
+	lt: String
+	ge: String
+	gt: String
+	contains: String
+	notContains: String
+	between: [String]
+	beginsWith: String
+	in: [String]
+	notIn: [String]
+}
+
+type PortfolioProject {
+	id: ID!
+	name: String!
+	comment: String!
+	image: String!
+	projectUrl: String!
+	cdt: AWSDate!
+	techList: [String]!
+}
+
+type PortfolioProjectConnection {
+	items: [PortfolioProject]
+	nextToken: String
+}
+
+input UpdatePortfolioProjectInput {
+	id: ID!
+	name: String!
+	comment: String!
+	image: String!
+	projectUrl: String!
+	cdt: AWSDate
+	techList: [String]!
+}
+
+type Mutation {
+	createPortfolioProject(input: CreatePortfolioProjectInput!): PortfolioProject
+	updatePortfolioProject(input: UpdatePortfolioProjectInput!): PortfolioProject
+	deletePortfolioProject(input: DeletePortfolioProjectInput!): PortfolioProject
+}
+
+type Query {
+	getPortfolioProject(id: ID!): PortfolioProject
+	listPortfolioProjects(filter: ModelPortfolioProjectInput, limit: Int, nextToken: String): PortfolioProjectConnection
+}
+
+type Subscription {
+	onCreatePortfolioProject(id: ID, cdt: AWSDate): PortfolioProject
+		@aws_subscribe(mutations: ["createPortfolioProject"])
+	onUpdatePortfolioProject(id: ID, cdt: AWSDate): PortfolioProject
+		@aws_subscribe(mutations: ["updatePortfolioProject"])
+	onDeletePortfolioProject(id: ID, cdt: AWSDate): PortfolioProject
+		@aws_subscribe(mutations: ["deletePortfolioProject"])
+}
+
+
+
+
+
+
+
+{
+  "createportfolioprojectsinput": {
+    "id": "1",
+    "cdt": "2024-08-08Z",
+    "name": "react & angular portfolio",
+    "comment": "react & angular portfolio 1900*1000",
+    "image": "../../assets/images/react-portfolio.png",
+    "projectUrl": "https://react.revnique.works",
+    "techList": ["React 19", "Angular 19", "AWS Amplify", "AWS Appsync", "GraphQL", "dark mode", "responsive web"]
+  }
+}
+
+
+
+{
+  "createportfolioprojectsinput": {
+    "id": 4,
+    "cdt": "2017-08-08T04:14:14.014Z",
+    "name": "meridian",
+    "comment": "peer to peer proof review system",
+    "image": "../../assets/images/rev_meridian.png",
+    "projectUrl": "https://meridian.ui.h1teq.com/proof/detail/5a051eaa0dd7185b4c2e7a2f",
+    "techList": ["Angular 4", "web sockets", ".Net Core", "C#"]
+  }
+}
+
+
+{
+  "createportfolioprojectsinput": {
+    "id": 1,
+    "cdt": "2024-08-08T04:14:14.014Z",
+    "name": "react & angular portfolio",
+    "comment": "react & angular portfolio 1900*1000",
+    "image": "../../assets/images/react-portfolio.png",
+    "projectUrl": "https://react.revnique.works",
+    "techList": ["React 19", "Angular 19", "AWS Amplify", "AWS Appsync", "GraphQL", "dark mode", "responsive web"]
+  },
+  "deleteportfolioprojectsinput": {
+    "id": 46
+  }
+}
+
+
+{
+  "createportfolioprojectsinput": {
+    "id": 2,
+    "cdt": "2018-08-08T04:14:14.014Z",
+    "name": "h1teq.com",
+    "comment": "h1 teq llc homepage",
+    "image": "../../assets/images/rev_h1teq.png",
+    "projectUrl": "https://h1teq.com",
+    "techList": ["responsive web", "dynamic pdf creation", "HTML", "CSS"]
+  },
+  "deleteportfolioprojectsinput": {
+    "id": 46
+  }
+}
+
+
+{
+  "createportfolioprojectsinput": {
+    "id": 3,
+    "cdt": "2019-08-08T04:14:14.014Z",
+    "name": "bucktrace.com",
+    "comment": "a currency tracking application",
+    "image": "../../assets/images/rev_bucktrace.png",
+    "projectUrl": "https://bucktrace.com/trace/K77777777*",
+    "techList": ["flutter", "iOS", "Android", "node.js", "AWS Lambda", "mongoDb", "Angular 14", "React 18", "SASS", "AWS"]
+  },
+  "deleteportfolioprojectsinput": {
+    "id": 46
+  }
+}
+
+{
+  "createportfolioprojectsinput": {
+    "id": 4,
+    "cdt": "2017-08-08T04:14:14.014Z",
+    "name": "meridian",
+    "comment": "peer to peer proof review system",
+    "image": "../../assets/images/rev_meridian.png",
+    "projectUrl": "https://meridian.ui.h1teq.com/proof/detail/5a051eaa0dd7185b4c2e7a2f",
+    "techList": ["Angular 4", "web sockets", ".Net Core", "C#"]
+  },
+  "deleteportfolioprojectsinput": {
+    "id": 46
+  }
+}

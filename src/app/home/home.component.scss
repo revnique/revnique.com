@@ -40,5 +40,30 @@ p {
             display: table;
         }
     }
+}
 
+@media (max-width: 768px) {
+    .main-container {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .project-container {
+        .title {
+            font-size: 2em;
+            text-decoration: underline;
+        }
+        .tech-list {
+            span {
+                font-size: .7em;
+            }
+        }
+        .comments {
+            font-size: 1.2em;
+        }
+        margin: 0px 0px 30px 0px;
+        img {
+            max-width: 270px;
+        }
+    }
 }

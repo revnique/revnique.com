@@ -1,5 +1,5 @@
 import { Injectable, Component } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, of, throwError } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpParams, HttpResponse } from '@angular/common/http';
 
@@ -25,7 +25,7 @@ export class RevService {
     };
 
     private map(response: HttpResponse<any>): Observable<any> {
-        return response.statusText === 'No Content' ? '' : response.body.success || {};
+        return response.statusText === 'No Content' ? of('') : response.body.success || {};
     }
 
     private catch(error: any, url?: any, obj?: any): Observable<any> {

@@ -13,9 +13,18 @@ import { EMPTY, from, Observable, of } from 'rxjs';
 export class HomeComponent implements OnInit {
 
   projects$: Observable<any> = EMPTY;
+  isLocalhost: boolean = location.hostname === 'localhost';
   constructor(private svc: RevService) { }
 
   ngOnInit() {
     this.projects$ = from(this.svc.fetchPortfolioProjects());
+    this.projects$.subscribe(projects => {
+      for (const proj of projects) {
+        if (proj.projectUrl.includes('react.revnique') && this.isLocalhost) {
+          proj.projectUrl = 'http://localhost:5173/';
+        }
+      }
+    });
   }
 }
+
